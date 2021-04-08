@@ -79,6 +79,10 @@ int main()
 template<typename T> void FillRand(T* arr, int size) 
 {
 	for (int i = 0; i < size; i++) {
+		if (sizeof T == 8) {
+			arr[i] = rand() / 1e2;
+		}
+		else
 		arr[i] = rand() % 50;
 	}
 }
@@ -102,25 +106,13 @@ template<typename T> void Allocate(T**& new_arr, int rows, int cols)
 template<typename T> void FillRand(T**& arr, int rows, int cols)
 {
 	for (int i = 0; i < rows; i++) {
-
-		for (int j = 0; j < cols; j++) {
-
-			if (sizeof(T) == 8) {
-				arr[i][j] = rand() / 10E2;
-			}
-			else
-				arr[i][j] = rand() % 255;
-		}
+		FillRand(arr[i],cols);
 	}
 }
 template<typename T> void Print(T**& arr, int rows, int cols)
 {
 	for (int i = 0; i < rows; i++) {
-
-		for (int j = 0; j < cols; j++) {
-			cout << arr[i][j] << tab;
-		}
-		cout << endl;
+		Print(arr[i], cols);
 	}
 	cout << endl;
 }
