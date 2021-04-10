@@ -5,20 +5,14 @@ using namespace std;
 template<typename T> void push_front(T*& arr, int size, int quant)
 {
 	T* buffer = new T[size + quant]{};
-	for (int i = 0; i < size; i++) {
-
-		buffer[i + quant] = arr[i];
-	}
+	for (int i = 0; i < size; buffer[i + quant] = arr[i], i++);
 	delete[] arr;
 	arr = buffer;
 }
 template<typename T> void push_back(T*& arr, int size, int quant)
 {
 	T* buffer = new T[size + quant]{};
-	for (int i = 0; i < size; i++) {
-
-		buffer[i] = arr[i];
-	}
+	for (int i = 0; i < size; buffer[i] = arr[i], i++);
 	delete[] arr;
 	arr = buffer;
 }
@@ -44,20 +38,14 @@ template<typename T> void insert(T*& arr, int size, int index, int quant)
 template<typename T> void pop_back(T*& arr, int size, int quant)
 {
 	T* buffer = new T[size - quant]{};
-	for (int i = 0; i < size - quant; i++) {
-
-		buffer[i] = arr[i];
-	}
+	for (int i = 0; i < size - quant; buffer[i] = arr[i], i++);
 	delete[] arr;
 	arr = buffer;
 }
 template<typename T> void pop_front(T*& arr, int size, int quant)
 {
 	T* buffer = new T[size - quant]{};
-	for (int i = 0; i < size - quant; i++) {
-
-		buffer[i] = arr[i + quant];
-	}
+	for (int i = 0; i < size - quant; buffer[i] = arr[i + quant], i++);
 	delete[] arr;
 	arr = buffer;
 }
@@ -83,89 +71,71 @@ template<typename T> void erase(T*& arr, int size, int index, int quant)
 
 template<typename T> void push_front(T**& arr, int& rows, int& cols, int quant_r, int quant_c)
 {
-	if (quant_r > 0) {
+	if (quant_r) {
 		push_front(arr, rows, quant_r);
-		for (int i = 0; i < quant_r; i++) {
-           arr[i] = new T[cols]{};
-		}
+		for (int i = 0; i < quant_r; arr[i] = new T[cols]{}, i++);
 		rows += quant_r;
 	}
-	if (quant_c > 0) {
-		for (int i = 0; i < rows; i++) {
-			push_front(arr[i], cols, quant_c);
-		}
+	if (quant_c) {
+		for (int i = 0; i < rows; push_front(arr[i], cols, quant_c), i++);
 		cols += quant_c;
 	}
 }
 template<typename T> void push_back(T**& arr, int& rows, int& cols, int quant_r, int quant_c)
 {
-	if (quant_r > 0) {
+	if (quant_r) {
 		push_back(arr, rows, quant_r);
-		for (int i = rows; i < rows + quant_r; i++) {
-              arr[i] = new T[cols]{};
-		}
-		rows += quant_r;
+		for (int i = rows; i < rows + quant_r; arr[i] = new T[cols]{}, i++);
+			rows += quant_r;
 	}
-	if (quant_c > 0) {
-		for (int i = 0; i < rows; i++) {
-			push_back(arr[i], cols, quant_c);
-		}
+	if (quant_c) {
+		for (int i = 0; i < rows; push_back(arr[i], cols, quant_c), i++);
 		cols += quant_c;
 	}
 }
 template<typename T> void insert(T**& arr, int& rows, int& cols, int index_r, int index_c, int quant_r, int quant_c)
 {
-	if (quant_r > 0) {
+	if (quant_r) {
 		insert(arr, rows, index_r, quant_r);
-		for (int i = index_r; i < index_r + quant_r; i++) {
-               arr[i] = new T[cols]{};
-		}
+		for (int i = index_r; i < index_r + quant_r; arr[i] = new T[cols]{}, i++);
 		rows +=quant_r;
 	}
-	if (quant_c > 0) {
-		for (int i = 0; i < rows; i++) {
-			insert(arr[i], cols, index_c, quant_c);
-		}
+	if (quant_c) {
+		for (int i = 0; i < rows; insert(arr[i], cols, index_c, quant_c), i++);
 		cols +=quant_c;
 	}
 }
 
 template<typename T> void pop_front(T**& arr, int& rows, int& cols, int quant_r, int quant_c)
 {
-	if (quant_r > 0) {
+	if (quant_r) {
 		pop_front(arr, rows, quant_r);
 		rows -= quant_r;
 	}
-	if (quant_c > 0) {
-		for (int i = 0; i < rows; i++) {
-			pop_front(arr[i], cols, quant_c);
-		}
+	if (quant_c) {
+		for (int i = 0; i < rows; pop_front(arr[i], cols, quant_c), i++);
 		cols -= quant_c;
 	}
 }
 template<typename T> void pop_back(T**& arr, int& rows, int& cols, int quant_r, int quant_c)
 {
-	if (quant_r > 0) {
+	if (quant_r) {
 		pop_back(arr, rows, quant_r);
 		rows -= quant_r;
 	}
-	if (quant_c > 0) {
-		for (int i = 0; i < rows; i++) {
-			pop_back(arr[i], cols, quant_c);
-		}
+	if (quant_c) {
+		for (int i = 0; i < rows; pop_back(arr[i], cols, quant_c), i++);
 		cols -= quant_c;
 	}
 }
 template<typename T> void erase(T**& arr, int& rows, int& cols, int index_r, int index_c, int quant_r, int quant_c)
 {
-	if (quant_r > 0) {
+	if (quant_r) {
 		erase(arr, rows, index_r, quant_r);
 		rows -= quant_r;
 	}
-	if (quant_c > 0) {
-		for (int i = 0; i < rows; i++) {
-			erase(arr[i], cols, index_c, quant_c);
-		}
+	if (quant_c) {
+		for (int i = 0; i < rows; erase(arr[i], cols, index_c, quant_c), i++);
 		cols -= quant_c;
 	}
 }

@@ -88,19 +88,14 @@ template<typename T> void FillRand(T* arr, int size)
 }
 template<typename T> void Print(T* arr, int size)
 {
-	for (int i = 0; i < size; i++) {
-		cout << arr[i] << tab;
-    }
+	for (int i = 0; i < size; cout << arr[i] << tab, i++);
 	cout << endl;
 }
 
 template<typename T> void Allocate(T**& new_arr, int rows, int cols)
 {
 	T** arr = new T * [rows];
-	for (int i = 0; i < rows; i++) {
-
-		arr[i] = new T[cols];
-	}
+	for (int i = 0; i < rows; arr[i] = new T[cols], i++);
 	new_arr = arr;
 }
 template<typename T> void FillRand(T**& arr, int rows, int cols)
@@ -118,10 +113,6 @@ template<typename T> void Print(T**& arr, int rows, int cols)
 }
 template<typename T> void Clear(T**& arr, int rows)
 {
-	for (int i = 0; i < rows; i++) {
-
-		delete[] arr[i];
-	}
-
+	for (int i = 0; i < rows; delete[] arr[i], i++);
 	delete[] arr;
 }
