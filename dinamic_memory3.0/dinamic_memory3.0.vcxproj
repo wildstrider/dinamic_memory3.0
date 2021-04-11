@@ -142,7 +142,12 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="allocate.h" />
+    <ClInclude Include="arrays1.h" />
+    <ClInclude Include="clear.h" />
+    <ClInclude Include="FillRand.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="Print.h" />
     <ClInclude Include="rows_cols.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
