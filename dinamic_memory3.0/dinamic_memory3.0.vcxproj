@@ -139,10 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="allocate.cpp" />
+    <ClCompile Include="clear.cpp" />
+    <ClCompile Include="FillRand.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="Print.cpp" />
+    <ClCompile Include="rows_cols.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="allocate.h" />
+    <ClInclude Include="clear.h" />
+    <ClInclude Include="FillRand.h" />
     <ClInclude Include="menu.h" />
+    <ClInclude Include="Print.h" />
     <ClInclude Include="rows_cols.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

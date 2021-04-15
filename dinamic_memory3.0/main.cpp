@@ -1,15 +1,16 @@
 ﻿#include <iostream>
 #include "menu.h"
+#include "menu.cpp"
+#include "Print.h"
+#include "Print.cpp"
+#include "FillRand.h"
+#include "FillRand.cpp"
+#include "allocate.h"
+#include "allocate.cpp"
+#include "clear.h"
+#include "clear.cpp"
 using namespace std;
-#define tab "\t"
 
-template<typename T> void FillRand(T* arr, int size);
-template<typename T> void Print(T* arr, int size);
-
-template<typename T> void Allocate(T**& arr, int rows, int cols);
-template<typename T> void FillRand(T**& arr, int rows, int cols);
-template<typename T> void Print(T**& arr, int rows, int cols);
-template<typename T> void Clear(T**& arr, int rows);
 
 int main()
 {
@@ -76,43 +77,7 @@ int main()
 	}
 }
 
-template<typename T> void FillRand(T* arr, int size) 
-{
-	for (int i = 0; i < size; i++) {
-		if (sizeof T == 8) {
-			arr[i] = rand() / 1e2;
-		}
-		else
-		arr[i] = rand() % 50;
-	}
-}
-template<typename T> void Print(T* arr, int size)
-{
-	for (int i = 0; i < size; cout << arr[i] << tab, i++);
-	cout << endl;
-}
 
-template<typename T> void Allocate(T**& new_arr, int rows, int cols)
-{
-	T** arr = new T * [rows];
-	for (int i = 0; i < rows; arr[i] = new T[cols], i++);
-	new_arr = arr;
-}
-template<typename T> void FillRand(T**& arr, int rows, int cols)
-{
-	for (int i = 0; i < rows; i++) {
-		FillRand(arr[i],cols);
-	}
-}
-template<typename T> void Print(T**& arr, int rows, int cols)
-{
-	for (int i = 0; i < rows; i++) {
-		Print(arr[i], cols);
-	}
-	cout << endl;
-}
-template<typename T> void Clear(T**& arr, int rows)
-{
-	for (int i = 0; i < rows; delete[] arr[i], i++);
-	delete[] arr;
-}
+
+
+
