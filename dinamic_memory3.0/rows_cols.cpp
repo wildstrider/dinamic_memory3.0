@@ -1,6 +1,5 @@
 ﻿#include "rows_cols.h"
 
-
 template<typename T> void push_front(T*& arr, int size, int quant)
 {
 	T* buffer = new T[size + quant]{};

@@ -1,15 +1,13 @@
-﻿#include <iostream>
-#include "menu.h"
+﻿#include "menu.h"
 #include "menu.cpp"
 #include "Print.h"
 #include "Print.cpp"
 #include "FillRand.h"
-#include "FillRand.cpp"
 #include "allocate.h"
 #include "allocate.cpp"
 #include "clear.h"
 #include "clear.cpp"
-using namespace std;
+
 
 
 int main()
