@@ -11,8 +11,6 @@ template<typename T> void Print(T* arr, int size)
 
 template<typename T> void Print(T**& arr, int rows, int cols)
 {
-	for (int i = 0; i < rows; i++) {
-		Print(arr[i], cols);
-	}
+	for (int i = 0; i < rows; Print(arr[i], cols), i++); 
 	cout << endl;
 }

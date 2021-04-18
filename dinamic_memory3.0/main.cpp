@@ -10,6 +10,7 @@
 
 
 
+
 int main()
 {
 	setlocale(LC_ALL, "ru");
@@ -44,6 +45,7 @@ int main()
 	cout << "1 - int" << endl;
 	cout << "2 - double" << endl;
 	int type; cin >> type;
+
 	switch (type)
 	{
 	case 1:
@@ -74,7 +76,6 @@ int main()
 		return 0;
 	}
 }
-
 
 
 
